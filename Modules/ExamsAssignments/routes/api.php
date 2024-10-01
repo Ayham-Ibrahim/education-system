@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Modules\ExamsAssignments\Http\Controllers\ExamController;
 use Modules\ExamsAssignments\Http\Controllers\ExamsAssignmentsController;
 
 /*
@@ -14,6 +15,16 @@ use Modules\ExamsAssignments\Http\Controllers\ExamsAssignmentsController;
  *
 */
 
-Route::middleware(['auth:sanctum'])->prefix('v1')->group(function () {
-    Route::apiResource('examsassignments', ExamsAssignmentsController::class)->names('examsassignments');
+// Route::middleware(['auth:sanctum'])->prefix('v1')->group(function () {
+//     Route::apiResource('examsassignments', ExamsAssignmentsController::class)->names('examsassignments');
+// });
+
+
+Route::group(['middleware' => ['auth:api']], function () {
+
+    // Route for submitting answers to an exam
+    Route::post('/exams/{examId}/submit-answers', [ExamController::class, 'submitAnswers']);
+
+
+    
 });

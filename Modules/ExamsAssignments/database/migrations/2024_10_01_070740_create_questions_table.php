@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('question');
             $table->json('options')->nullable();
             $table->text('answer');
+            $table->integer('grade');
             $table->unsignedBigInteger('exam_id')->nullable();
             $table->unsignedBigInteger('assignment_id')->nullable();
             $table->foreign('exam_id')->references('id')->on('exams')->onDelete('cascade');

@@ -16,7 +16,7 @@ class Question extends Model
     /**
      * The attributes that are mass assignable.
      */
-    protected $fillable = ['type', 'question', 'options','answer','exam_id', 'assignment_id'];
+    protected $fillable = ['type', 'question','grade', 'options','answer','exam_id', 'assignment_id'];
 
     // protected static function newFactory(): QuestionFactory
     // {
