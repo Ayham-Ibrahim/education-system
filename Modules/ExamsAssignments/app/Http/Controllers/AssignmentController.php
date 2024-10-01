@@ -23,9 +23,9 @@ class AssignmentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreAssignmentRequest $request,$subjectId)
+    public function store(StoreAssignmentRequest $request,Subject $subject)
     {
-        $subject = Subject::findOrFail($subjectId);
+        // $subject = Subject::findOrFail($subjectId);
         $assignment = $subject->assignments()->create($request->validated());
         return response()->json($assignment, 201);
 

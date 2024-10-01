@@ -12,7 +12,10 @@ class UpdateAssignmentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => 'nullable|string|max:30',
+            'description' => 'nullable|string|max:255',
+            'subject_id' => 'nullable|exists:subjects,id',
+            'due_date' => 'nullable|date',
         ];
     }
 
