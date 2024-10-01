@@ -20,9 +20,9 @@ class ExamController extends Controller
      * @param mixed $subjectId
      * @return mixed|\Illuminate\Http\JsonResponse
      */
-    public function store(StoreExamRequest $request, $subjectId)
+    public function store(StoreExamRequest $request,Subject $subject)
     {
-        $subject = Subject::findOrFail($subjectId);
+        // $subject = Subject::findOrFail($subjectId);
         $exam = $subject->exams()->create($request->validated());
         return response()->json($exam, 201);
     }
